@@ -1,0 +1,34 @@
+<h1><a href="/">{{ name }}</a></h1>
+<div>
+    <canvas id="chart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('chart');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [
+          '{{ today }}',
+      ],
+      datasets: [{
+        data: [
+            {{ days_until_blackhole }},
+        ],
+      }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        scales: {
+            y: {
+              beginAtZero: true
+            }
+        }
+    }
+  });
+</script>
